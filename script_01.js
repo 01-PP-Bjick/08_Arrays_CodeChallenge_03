@@ -23,6 +23,7 @@ const QUE = "?";
 const PUNCT = ".";
 const EXCL = "!";
 const GAP = " ";
+const ERROR_STR = "Ungültige Eingabe"
 
 let zeichen = prompt("Frage, Satz oder Aufforderung? Q / S / E eingeben");
 output(getSentence(["Ich","bin","der","coole","Max","Mütze"], zeichen));
@@ -39,18 +40,21 @@ function getSentence(arr, zeichen)
             {
                 case "q":
                 case "Q":
+                case "?":
                   str = str + arr[i] + QUE;
                   break;
                 case "s":
                 case "S":
+                case ".":    
                   str = str + arr[i] + PUNCT;
                   break;
                 case "e":
                 case "E":
+                case "!":
                   str = str + arr[i] + EXCL;
                   break;
                 default:
-                  return output("Ungültige Eingabe");
+                  return output(ERROR_STR);
             }      
 
         }
